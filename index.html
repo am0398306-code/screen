@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مخزن قطع الغيار Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <!-- شاشة الترحيب -->
+  <div id="introScreen" class="intro-screen">
+    <h1 class="welcome-text">مرحباً / Hello</h1>
+    <p class="sub-text">جاري تحميل نظام المخزن...</p>
+  </div>
+
+  <!-- الصفحة الرئيسية -->
+  <div id="mainApp" class="main-app hidden">
+    
+    <!-- الأقسام الثلاثة -->
+    <div class="categories-container" id="categoriesContainer">
+      <h2 class="title">اختر القسم</h2>
+      
+      <!-- كارت الشاشات -->
+      <div class="card" onclick="openCategory('screens', this)">
+        <img src="screen.jpg" alt="شاشات" class="cat-img" onerror="this.src='https://via.placeholder.com/100?text=Screens'">
+        <h3>شاشات</h3>
+      </div>
+
+      <!-- كارت الباغات -->
+      <div class="card" onclick="openCategory('glass', this)">
+        <img src="elaser.jpg" alt="باغات" class="cat-img" onerror="this.src='https://via.placeholder.com/100?text=Glass'">
+        <h3>باغات</h3>
+      </div>
+
+      <!-- كارت البطاريات -->
+      <div class="card" onclick="openCategory('batteries', this)">
+        <img src="batarey.jpg" alt="بطاريات" class="cat-img" onerror="this.src='https://via.placeholder.com/100?text=Batteries'">
+        <h3>بطاريات</h3>
+      </div>
+    </div>
+
+    <!-- عرض المنتجات -->
+    <div id="productsView" class="products-view hidden">
+      <button class="back-btn" onclick="closeCategory()">← العودة للأقسام</button>
+      <h2 id="categoryTitle" class="cat-title"></h2>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="" onkeyup="filterProducts()">
+      </div>
+
+      <div id="loading" class="loading hidden">جاري تحميل المنتجات...</div>
+      <div id="productsList" class="products-list"></div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
